@@ -67,16 +67,16 @@
         }
     }
 
-    // function findByfoodname(){
-    //     var foodname = $("#foodname").val();
-    //     var res = $.ajax({
-    //         url:"/findByfoodname/"+foodname,
-    //         type:"get",
-    //         dataType:"json",
-    //         success:function (data){
-    //             render.list(data);
-    //         },
-    //     });
-    // };
+    function findByfoodname(){
+        var foodname = $("#foodname").val();
+        var res = $.ajax({
+            url:"/findByfoodname/"+foodname,
+            type:"get",
+            dataType:"json",
+            success:function (data){
+                render.list(data);
+            },
+        });
+    };
 </script>
 </html>
