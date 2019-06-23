@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增菜品</title>
+</head>
+<body>
+<div>
+    菜名:<input name="foodname" ><br>
+    类别:<input name="type" ><br>
+    单价:<input name="price" ><br>
+    麻辣程度:<input name="spicydegree" ><br>
+    可否打包:<input name="ispackage" ><br>
+    好评程度:<input name="hotlevel" ><br>
+    已售数量:<input name="selectedcount" ><br>
+    其他说明:<input name="note" ><br>
+
+    <input onclick="add()" type="button" value="确定" />
+</div>
+</body>
+</html>
+<script src="js/jquery-1.12.4.min.js" type=“text/javascript”></script>
+<script>
+function add () {
+    var foodname=$("input[name='foodname']").val();
+    var type=$("input[name='type']").val();
+    var price=$("input[name='price']").val();
+    var spicydegree=$("input[name='spicydegree']").val();
+    var ispackage=$("input[name='ispackage']").val();
+    var hotlevel=$("input[name='hotlevel']").val();
+    var selectedcount=$("input[name='selectedcount']").val();
+    var note=$("input[name='note']").val();
+    $.ajax({
+        url:'/addfood',
+        type:"post",
+        dataType:"text",
+        data:{"foodname":foodname,"type":type,"price":price,"spicydegree":spicydegree,"ispackage":ispackage,"hotlevel":hotlevel,"selectedcount":selectedcount,"note":note},
+        success:function(data){
+            window.alert("添加成功");
+            window.location.href='/foodinfo'
+        },
+        error:function () {
+            window.alert("添加失败");
+        }
+    });
+};
+
+</script>

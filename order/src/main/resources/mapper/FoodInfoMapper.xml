@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.FoodInfoMapper">
+    <resultMap type="com.example.demo.entity.FoodTypeInfo" id="foodMap">
+        <id column="foodid" property="foodid"/>
+        <result column="foodname" property="foodname"/>
+        <result column="type" property="type"/>
+        <result column="price" property="price"/>
+        <result column="spicydegree" property="spicydegree"/>
+        <result column="ispackage" property="ispackage"/>
+        <result column="hotlevel" property="hotlevel"/>
+        <result column="selectedcount" property="selectedcount"/>
+        <result column="note" property="note"/>
+    </resultMap>
+
+    <insert id="add">
+    insert into tb_foodtypeinfo values(null,#{foodname},#{type},#{price},#{spicydegree},#{ispackage},#{hotlevel},#{selectedcount},#{note})
+  </insert>
+
+    <!--<delete id="delete">-->
+    <!--delete from book where id=#{id}-->
+<!--</delete>-->
+
+    <!--<update id="update">-->
+    <!--update book set bookname=#{bookname},author=#{author},price=#{price} where id=#{id}-->
+<!--</update>-->
+
+    <select id="findlist" resultMap="foodMap">
+    select * from tb_foodtypeinfo
+</select>
+    <!--<select id="findById" resultMap="bookMap">-->
+    <!--select * from book where  id=#{id}-->
+<!--</select>-->
+        <select id="findByfoodname" parameterType="String" resultMap="foodMap">
+          select * from tb_foodtypeinfo where  foodname LIKE '%${foodname}%'
+    </select>
+</mapper>
