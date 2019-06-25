@@ -28,10 +28,8 @@
 </div>
 </div>
 </body>
-<!--<script src="js/jquery-3.4.1.min.js" type=“text/javascript”></script>-->
-<script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    //查看所有
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
     $(function(){
         var res = $.ajax({
             url:"/findlist",
@@ -42,7 +40,7 @@
             }
         });
     });
-
+    //封装
     var render = {
         list:function (data) {
             var html = '';
@@ -66,7 +64,7 @@
             $("#tbodydata").html(html);
         }
     }
-
+    //按名称查找
     function findByfoodname(){
         var foodname = $("#foodname").val();
         var res = $.ajax({
