@@ -6,14 +6,31 @@
 </head>
 <body>
 <div>
-    菜名:<input name="foodname" ><br>
-    类别:<input name="type" ><br>
-    单价:<input name="price" ><br>
-    麻辣程度:<input name="spicydegree" ><br>
-    可否打包:<input name="ispackage" ><br>
-    好评程度:<input name="hotlevel" ><br>
-    已售数量:<input name="selectedcount" ><br>
-    其他说明:<input name="note" ><br>
+    菜名:<input name="foodname" ><br><br>
+    类别:<br><br>
+    <!--<input name="type" ><br>-->
+    <!--<select name="type" id="id_select">-->
+        <!--<option value ="甜食点心">甜食点心 </option>-->
+        <!--<option value ="面食米线">面食米线 </option>-->
+        <!--<option value ="盖浇煲仔">盖浇煲仔 </option>-->
+        <!--<option value ="快餐炒菜">快餐炒菜</option>-->
+    <!--</select><br><br>-->
+    甜食点心:<input type="radio" name="type" value="0">
+    面食米线:<input type="radio" name="type" value="1">
+    盖浇煲仔:<input type="radio" name="type" value="2">
+    快餐炒菜:<input type="radio" name="type" value="3"><br><br>
+    单价:<input name="price" ><br><br>
+    麻辣程度:<br><br>
+    <!--微辣、 1：中辣、 2：超辣-->
+    微辣:<input type="radio" name="spicydegree" value="0">
+    中辣:<input type="radio" name="spicydegree" value="1">
+    超辣:<input type="radio" name="spicydegree" value="2"><br><br>
+    可否打包:<br><br>
+    打包：<input type="radio" name="ispackage" value="0">&nbsp;&nbsp;不打包<input type="radio" name="ispackage" value="1"><br>
+
+    好评程度:<input name="hotlevel" ><br><br>
+    已售数量:<input name="selectedcount" ><br><br>
+    其他说明:<input name="note" ><br><br>
 
     <input onclick="add()" type="button" value="确定" />
 </div>
