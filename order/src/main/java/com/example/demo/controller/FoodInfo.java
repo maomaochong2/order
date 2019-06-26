@@ -31,7 +31,7 @@ public class FoodInfo {
     @ResponseBody
     public List<FoodTypeInfo> findlist(){
         List<FoodTypeInfo> list=foodInfoService.findlist();
-        System.out.println(list);
+//        System.out.println(list);
         return list;
     }
     //添加页面
@@ -44,7 +44,33 @@ public class FoodInfo {
     @PostMapping("/addfood")
     @ResponseBody
     public int addfood(@Valid FoodTypeInfo foodTypeInfo){
+
         return foodInfoService.add(foodTypeInfo);
+    }
+    //删除功能
+    @GetMapping("/deletefood/{foodid}")
+    @ResponseBody
+    public List<FoodTypeInfo> deletefood(@PathVariable("foodid") Integer foodid){
+        foodInfoService.deletefood(foodid);
+        return foodInfoService.findlist();
+    }
+    //跳转修改页面
+    @RequestMapping("/toupdatefood")
+    public String toupdatefood(Integer foodid){
+        return "toupdatefood";
+    }
+    @GetMapping("/findById/{foodid}")
+    @ResponseBody
+    public FoodTypeInfo findById(@PathVariable("foodid") Integer foodid){
+        FoodTypeInfo foodTypeInfo =foodInfoService.findById(foodid);
+        System.out.println(foodTypeInfo);
+        return foodTypeInfo;
+    }
+    //修改功能
+    @PutMapping("/updatefood")
+    @ResponseBody
+    public Integer updatefood(FoodTypeInfo foodTypeInfo){
+        return  foodInfoService.update(foodTypeInfo);
     }
     //根据菜名查询
     @GetMapping("/findByfoodname/{foodname}")

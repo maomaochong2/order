@@ -20,4 +20,13 @@ public class FoodInfoService {
     public List<FoodTypeInfo> findByfoodname(String foodname){
         return foodInfoMapper.findByfoodname(foodname);
     }
+    public int deletefood(Integer foodid){
+        return foodInfoMapper.deletefood(foodid);
+    }
+    public int update(FoodTypeInfo foodTypeInfo){
+        return foodInfoMapper.update(foodTypeInfo);
+    }
+    public FoodTypeInfo findById(Integer foodid){
+        return foodInfoMapper.findById(foodid);
+    }
 }

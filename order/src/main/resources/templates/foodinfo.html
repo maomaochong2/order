@@ -57,13 +57,28 @@
                     "<td >"+data[i].selectedcount+"</td>\n" +
                     "<td >"+data[i].note+"</td>\n" +
                     "<td>"+
-                    "<a href=\"/toupdatebook?id="+data[i].id+"\">修改</a>&nbsp;&nbsp;\n"
-                    +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].id+")'/>"+"</td>"+
+                    "<a href=\"/toupdatefood?foodid="+data[i].foodid+"\">修改</a>&nbsp;&nbsp;\n"
+                    +"<input type='button' id='delBtn' value='删除' onclick='del("+data[i].foodid+")'/>"+"</td>"+
                     "</tr>\n";
             }
             $("#tbodydata").html(html);
         }
-    }
+    };
+    //删除
+    function del(foodid){
+        $.ajax({
+            type:"get",
+            url:"/deletefood/"+foodid,
+            dataType:"json",
+            success:function(data){
+                alert("删除成功");
+                render.list(data);
+            },
+            error:function (data) {
+                alert("删除失败");
+            }
+        });
+    };
     //按名称查找
     function findByfoodname(){
         var foodname = $("#foodname").val();

@@ -11,4 +11,7 @@ public interface FoodInfoMapper {
     List<FoodTypeInfo> findlist();
     int add(FoodTypeInfo foodTypeInfo);
     List<FoodTypeInfo> findByfoodname(@Param("foodname") String foodname);
+    int deletefood(Integer foodid);
+    int update(FoodTypeInfo foodTypeInfo);
+    FoodTypeInfo  findById(Integer foodid);
 }

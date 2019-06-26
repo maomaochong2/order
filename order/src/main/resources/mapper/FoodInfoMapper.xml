@@ -19,20 +19,24 @@
     insert into tb_foodtypeinfo values(null,#{foodname},#{type},#{price},#{spicydegree},#{ispackage},#{hotlevel},#{selectedcount},#{note})
   </insert>
 
-    <!--<delete id="delete">-->
-    <!--delete from book where id=#{id}-->
-<!--</delete>-->
+    <delete id="deletefood">
+    delete from tb_foodtypeinfo where foodid=#{foodid}
+</delete>
 
-    <!--<update id="update">-->
-    <!--update book set bookname=#{bookname},author=#{author},price=#{price} where id=#{id}-->
-<!--</update>-->
+    <update id="update">
+    update tb_foodtypeinfo set
+    foodname=#{foodname},type=#{type},price=#{price},
+    spicydegree=#{spicydegree},ispackage=#{ispackage},hotlevel=#{hotlevel},
+    selectedcount=#{selectedcount},note=#{note}
+     where foodid=#{foodid}
+</update>
 
     <select id="findlist" resultMap="foodMap">
     select * from tb_foodtypeinfo
 </select>
-    <!--<select id="findById" resultMap="bookMap">-->
-    <!--select * from book where  id=#{id}-->
-<!--</select>-->
+    <select id="findById" resultMap="foodMap">
+    select * from tb_foodtypeinfo where  foodid=#{foodid}
+</select>
         <select id="findByfoodname" parameterType="String" resultMap="foodMap">
           select * from tb_foodtypeinfo where  foodname LIKE '%${foodname}%'
     </select>
